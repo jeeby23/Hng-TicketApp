@@ -5,16 +5,16 @@ import close from '@/assets/close.svg'
 const isOpen = ref(false)
 
 defineProps({
-  Class:{
-    type:String,
-    default:'bg-white shadow-md z-50'
-  }
+  Class: {
+    type: String,
+    default: 'bg-white shadow-md z-50',
+  },
 })
 </script>
 
 <template>
   <div class="flex flex-col">
-    <nav :class="Class">
+    <nav :class="Class" class="relative">
       <div class="max-w-[1440px] mx-auto px-6 py-4 flex justify-between items-center">
         <h1 class="text-2xl font-bold text-primary">TicketApp</h1>
 
@@ -55,7 +55,7 @@ defineProps({
       <!-- Mobile Menu -->
       <div
         v-show="isOpen"
-        class="md:hidden px-6 pb-4 flex flex-col space-y-2 bg-white shadow-inner"
+        class="absolute top-full left-0 w-full md:hidden px-6 pb-4 flex flex-col space-y-2 bg-white shadow-lg z-40"
       >
         <router-link
           :to="{ name: 'home' }"
