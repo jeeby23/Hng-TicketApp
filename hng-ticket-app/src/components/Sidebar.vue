@@ -25,15 +25,6 @@
         <span v-if="!collapsed">Dashboard</span>
       </RouterLink>
 
-      <!-- <RouterLink
-        :to="{name:'Tickets'}"
-        class="flex items-center gap-3 p-3 rounded-md  hover:bg-gray-200 hover:text-black transition"
-        exact-active-class="bg-gray-200 text-black font-semibold"
-      >
-        <span class="material-symbols-outlined text-xl">confirmation_number</span>
-        <span v-if="!collapsed">Tickets</span>
-      </RouterLink> -->
-
     </nav>
 
     <!-- Logout -->

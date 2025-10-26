@@ -5,7 +5,7 @@
     <div
       class="max-w-[1440px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left"
     >
-      <!-- 🟦 Contact Us -->
+
       <div>
         <h1 class="text-xl font-semibold text-gray-800 mb-4">Contact Us</h1>
 
@@ -25,7 +25,6 @@
         </div>
       </div>
 
-      <!-- 🟦 Quick Links -->
       <div>
         <h1 class="text-xl font-semibold text-gray-800 mb-4">Quick Links</h1>
         <ul class="flex flex-col space-y-2">
@@ -53,7 +52,6 @@
         </ul>
       </div>
 
-      <!-- 🟦 Newsletter -->
       <div>
         <h1 class="text-xl font-semibold text-gray-800 mb-4">Newsletter</h1>
         <p class="text-gray-600 mb-4">
@@ -74,7 +72,6 @@
       </div>
     </div>
 
-    <!-- 🟦 Footer Bottom -->
     <div class="bg-gray-100 py-4 text-center text-gray-600 text-sm">
       © 2025 Tickets. All rights reserved.
     </div>

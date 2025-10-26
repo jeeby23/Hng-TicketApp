@@ -11,7 +11,6 @@ import About from '@/views/pages/About.vue'
     <Hero />
     <About />
 
-    <!-- Why Choose Us Section -->
     <section class="my-16 px-6 text-center">
       <div>
         <h1 class="text-3xl font-bold text-gray-800 mb-4">Why Choose Us</h1>
@@ -23,7 +22,7 @@ import About from '@/views/pages/About.vue'
       </div>
 
       <div class="flex flex-col md:flex-row gap-10 justify-center items-center">
-        <!-- Card 1 -->
+ 
         <div class="flex flex-col justify-center items-center max-w-xs text-center">
           <span
             class="material-symbols-outlined text-[10em] w-auto h-auto p-4 flex items-center justify-center bg-[#fdfdfd] shadow-md rounded-full text-gray-700 mx-auto mb-[13px]"
@@ -36,7 +35,6 @@ import About from '@/views/pages/About.vue'
           </p>
         </div>
 
-        <!-- Card 2 -->
         <div class="flex flex-col justify-center items-center max-w-xs text-center">
           <span
             class="material-symbols-outlined text-[4em] w-auto h-auto p-4 flex items-center justify-center bg-[#fdfdfd] shadow-md rounded-full text-gray-700 mx-auto mb-[13px]"
@@ -49,7 +47,6 @@ import About from '@/views/pages/About.vue'
           </p>
         </div>
 
-        <!-- Card 3 -->
         <div class="flex flex-col justify-center items-center max-w-xs text-center">
           <span
             class="material-symbols-outlined text-[4em]w-auto h-auto p-4 flex items-center justify-center bg-[#fdfdfd] shadow-md rounded-full text-gray-700 mx-auto mb-[13px]"

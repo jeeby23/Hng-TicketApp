@@ -5,17 +5,16 @@ import circle from '@/assets/circle1.svg'
 
 <template>
   <div>
-    <!-- 🔹 Hero Section -->
     <section
       class="relative bg-linear-to-r from-gray-50 to-gray-400 flex flex-col justify-center items-center text-center py-24 overflow-hidden md:h-120 z-30"
     >
-      <!-- Decorative Circle -->
+
       <img
         :src="circle"
         alt="circle svg"
         class="absolute top-10 left-10 w-32 h-32 rounded-full opacity-90 "
       />
-      <!-- Hero Content -->
+     
       <div class="max-w-[1440px] mx-auto px-6 z-10">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
           Manage Your Tickets Easily

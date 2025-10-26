@@ -16,7 +16,9 @@ defineProps({
   <div class="flex flex-col">
     <nav :class="Class" class="relative">
       <div class="max-w-[1440px] mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-primary">TicketApp</h1>
+        <router-link :to="{ name: 'home' }">
+          <h1 class="text-2xl font-bold text-primary">TicketApp</h1>
+        </router-link>
 
         <button @click="isOpen = !isOpen" class="text-gray-700 md:hidden focus:outline-none">
           <img :src="hamburger" alt="hamburger svg" v-if="!isOpen" class="w-6 h-6" />
@@ -37,12 +39,7 @@ defineProps({
           >
             Login
           </router-link>
-          <!-- <router-link
-            :to="{ name: 'Dashboard' }"
-            class="px-4 py-2 text-gray-700 hover:text-primary transition"
-          >
-            Dashboard
-          </router-link> -->
+    
           <router-link
             :to="{ name: 'Signup' }"
             class="bg-primary px-4 py-2 rounded-lg hover:bg-secondary transition"
@@ -71,13 +68,6 @@ defineProps({
         >
           Login
         </router-link>
-        <!-- <router-link
-          :to="{ name: 'Dashboard' }"
-          class="text-gray-700 hover:text-primary transition"
-          @click="isOpen = false"
-        >
-          Dasboard
-        </router-link> -->
         <router-link
           :to="{ name: 'Signup' }"
           class="py-2 rounded-lg hover:bg-secondary transition"

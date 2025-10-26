@@ -1,16 +1,14 @@
 <template>
   <div class="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-8 px-4">
-    <div class="max-w-4xl mx-auto">
-      <!-- Header -->
+    <div class="max-w-[1440px] mx-auto">
       <div class="text-center mb-8">
         <h1 class="text-3xl font-bold text-gray-800 mb-2">Create New Ticket</h1>
         <p class="text-gray-600">Fill in the details below to create a new support ticket</p>
       </div>
 
-      <!-- Form Card -->
+
       <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
         <form @submit.prevent="handleSubmit" class="space-y-6">
-          <!-- Title -->
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
             <input
@@ -96,7 +94,7 @@ const form = reactive({
   title: '',
   description: '',
   status: '',
-  priority: 'medium'
+  priority: 'medium',
 })
 
 const errors = ref({})
@@ -113,17 +111,17 @@ const errors = ref({})
 
 const validateForm = () => {
   errors.value = {}
-  
+
   if (!form.title.trim()) {
     errors.value.title = 'Title is required'
   }
-  
+
   if (!form.status) {
     errors.value.status = 'Status is required'
   } else if (!['open', 'in_progress', 'closed'].includes(form.status)) {
     errors.value.status = 'Invalid status value'
   }
-  
+
   return Object.keys(errors.value).length === 0
 }
 
@@ -138,7 +136,7 @@ const handleSubmit = () => {
 
   // Get existing tickets from localStorage
   const existingTickets = JSON.parse(localStorage.getItem('tickets') || '[]')
-  
+
   // Create new ticket with user ownership
   const newTicket = {
     id: Date.now().toString(),
@@ -146,16 +144,16 @@ const handleSubmit = () => {
     createdBy: {
       userId: currentUser.value.userId,
       name: currentUser.value.name,
-      email: currentUser.value.email
+      email: currentUser.value.email,
     },
     createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
+    updatedAt: new Date().toISOString(),
   }
-  
+
   // Save to localStorage
   existingTickets.push(newTicket)
   localStorage.setItem('tickets', JSON.stringify(existingTickets))
-  
+
   alert('Ticket created successfully!')
   router.push('/tickets')
 }

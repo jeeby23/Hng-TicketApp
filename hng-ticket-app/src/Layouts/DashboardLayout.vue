@@ -1,6 +1,5 @@
 <template>
   <div class="flex min-h-screen bg-gray-50 relative">
-    <!-- Sidebar -->
     <Sidebar />
 
     <div class="flex-1 ml-20 md:ml-60 transition-all duration-300 p-6 relative">
@@ -34,18 +33,15 @@
                   class="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer text-left"
                   @click="handlePopupAction(popup)"
                 >
-                <RouterLink :to="{name:popup.route}">
-
+                  <RouterLink :to="{ name: popup.route }">
                     {{ popup.name }}
-                </RouterLink>
+                  </RouterLink>
                 </li>
               </ul>
             </transition>
           </div>
         </div>
       </header>
-
-      <!-- Page Content -->
       <main>
         <RouterView />
       </main>
@@ -56,7 +52,6 @@
 <script setup>
 import { ref } from 'vue'
 import Sidebar from '@/components/Sidebar.vue'
-
 
 const popups = [
   { name: 'Home', routes: 'home' },

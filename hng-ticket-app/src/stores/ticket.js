@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 const STATE = reactive({
   user: null,
   toasts: [],
-  tickets: []
+  tickets: [],
 })
 
 const SESSION_KEY = 'ticketapp_session'
@@ -12,16 +12,24 @@ const TICKETS_KEY = 'ticketapp_tickets'
 function boot() {
   const s = localStorage.getItem(SESSION_KEY)
   if (s) {
-    try { STATE.user = JSON.parse(s).user } catch(e) { STATE.user = null }
+    try {
+      STATE.user = JSON.parse(s).user
+    } catch (e) {
+      STATE.user = null
+    }
   }
   const t = localStorage.getItem(TICKETS_KEY)
   if (t) {
-    try { STATE.tickets = JSON.parse(t) } catch(e) { STATE.tickets = [] }
+    try {
+      STATE.tickets = JSON.parse(t)
+    } catch (e) {
+      STATE.tickets = []
+    }
   } else {
     STATE.tickets = [
       { id: 1, title: 'Sample: Login bug', description: 'Cannot login on mobile', status: 'open' },
       { id: 2, title: 'Export feature', description: 'Add CSV export', status: 'in_progress' },
-      { id: 3, title: 'UI tweak', description: 'Spacing adjustments', status: 'closed' }
+      { id: 3, title: 'UI tweak', description: 'Spacing adjustments', status: 'closed' },
     ]
     persistTickets()
   }
@@ -61,7 +69,7 @@ function deleteTicket(id) {
   }
   return false
 }
-function pushToast(message, type='info', timeout=3500) {
+function pushToast(message, type = 'info', timeout = 3500) {
   const id = Date.now() + Math.random()
   STATE.toasts.push({ id, message, type })
   setTimeout(() => {
@@ -79,5 +87,5 @@ export default {
   createTicket,
   updateTicket,
   deleteTicket,
-  pushToast
+  pushToast,
 }

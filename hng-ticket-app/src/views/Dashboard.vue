@@ -22,7 +22,7 @@
         <div class="flex flex-wrap gap-4 mb-6">
           <button
             @click="openModal"
-            class="bg-green-400 text-white px-1 py-2  rounded hover:bg-green-700 transition"
+            class="bg-green-400 text-white px-1 py-2 rounded hover:bg-green-700 transition"
           >
             + New Ticket
           </button>
@@ -57,11 +57,6 @@ const stats = ref({ total: 0, open: 0, closed: 0 })
 const recentTickets = ref([])
 const showModal = ref(false)
 const editing = ref(null)
-
-// const handleLogout = () => {
-//   localStorage.removeItem('ticketapp_session')
-//   router.push('/')
-// }
 
 const loadTickets = () => {
   const tickets = JSON.parse(localStorage.getItem('tickets') || '[]')
