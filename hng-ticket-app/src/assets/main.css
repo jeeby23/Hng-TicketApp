@@ -1,0 +1,12 @@
+@import "tailwindcss";
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48; /* this controls optical size */
+  font-size: inherit; /* allows Tailwind text-[size] to control size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

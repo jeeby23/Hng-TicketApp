@@ -1,0 +1,43 @@
+<script setup>
+import wavy from '@/assets/wavy.svg'
+import circle from '@/assets/circle1.svg'
+</script>
+
+<template>
+  <div>
+    <!-- 🔹 Hero Section -->
+    <section
+      class="relative bg-linear-to-r from-gray-50 to-gray-400 flex flex-col justify-center items-center text-center py-24 overflow-hidden md:h-120"
+    >
+      <!-- Decorative Circle -->
+      <img
+        :src="circle"
+        alt="circle svg"
+        class="absolute top-10 left-10 w-32 h-32 rounded-full opacity-90 z-10"
+      />
+      <!-- Hero Content -->
+      <div class="max-w-[1440px] mx-auto px-6 z-10">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Manage Your Tickets Easily
+        </h2>
+        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+          A modern and multi-framework ticket management app to streamline your workflow
+          efficiently.
+        </p>
+        <div class="flex flex-col md:flex-row gap-2 justify-center">
+          <router-link
+            :to="{ name: 'Signup' }"
+            class="border   bg-gray-800 px-3 py-2 rounded-lg hover:bg-primary text-white transition"
+          >
+            Get Started
+          </router-link>
+          <router-link :to="{ name: 'Login' }" class="px-6 py-3 border border-gray-400 rounded-lg "> Login </router-link>
+        </div>
+      </div>
+      <!-- Wavy SVG Background -->
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <img :src="wavy" alt="wavy svg" />
+      </div>
+    </section>
+  </div>
+</template>
