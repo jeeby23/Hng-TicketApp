@@ -4,11 +4,12 @@ import { useRouter } from 'vue-router'
 import Navbar from '@/components/ui/Navbar.vue'
 import { useFormValidation } from '@/composables/useFormValidation'
 import AuthBackground from "@/assets/AuthBackground.png" 
-const router = useRouter()
+import { useToast } from 'vue-toast-notification'
 
+const toast = useToast()
+const router = useRouter()
 const email = ref('')
 const password = ref('')
-
 const { errors, validateRequired } = useFormValidation(['email', 'password'])
 
 function handleLogin() {
@@ -21,12 +22,12 @@ function handleLogin() {
   )
 
   if (!user) {
-    alert('Invalid email or password. Please try again.')
+    toast.failed('Invalid email or password. Please try again.')
     return
   }
 
   localStorage.setItem('ticketapp_session', JSON.stringify(user))
-  alert(`Welcome back, ${user.name}!`)
+  toast.success(`Welcome back, ${user.name}!`)
   router.push('/dashboard')
 }
 </script>

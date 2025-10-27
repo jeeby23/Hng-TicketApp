@@ -94,11 +94,13 @@ const validateForm = () => {
 const saveTicket = () => {
   if (!validateForm()) return
 
-  let tickets = JSON.parse(localStorage.getItem('tickets') || '[]')
+  let tickets = JSON.parse(localStorage.getItem('ticketapp_tickets') || '[]')
 
   if (props.editing) {
     const index = tickets.findIndex(t => t.id === props.editing.id)
-    if (index !== -1) tickets[index] = { ...props.editing, ...form.value }
+    if (index !== -1) {
+      tickets[index] = { ...tickets[index], ...form.value }
+    }
   } else {
     tickets.push({
       id: Date.now(),
@@ -106,8 +108,7 @@ const saveTicket = () => {
       createdAt: new Date().toISOString()
     })
   }
-
-  localStorage.setItem('tickets', JSON.stringify(tickets))
+  localStorage.setItem('ticketapp_tickets', JSON.stringify(tickets))
   emit('saved')
 }
 </script>

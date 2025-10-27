@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardLayout from '@/Layouts/DashboardLayout.vue'
 import Dashboard from '@/views/Dashboard.vue'
-import Tickets from '@/components/TicketsCard.vue'
+import TicketPage from '@/views/Ticket.vue'
 
 export const dashboardroutes = [
   {
@@ -14,10 +14,10 @@ export const dashboardroutes = [
         component: Dashboard,
       },
       {
-        path: '/tickets',
-        name: 'Tickets',
-        component: Tickets,
-        meta: { requiresAuth: true },
+        path: '/TicketPage',
+        name: 'TicketPage',
+        component: TicketPage,
+       
       },
     ],
   },

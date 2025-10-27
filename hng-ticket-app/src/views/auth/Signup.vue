@@ -4,7 +4,9 @@ import { useRouter } from 'vue-router'
 import Navbar from '@/components/ui/Navbar.vue'
 import AuthBackground from "@/assets/AuthBackground.png" 
 import { useFormValidation } from '@/composables/useFormValidation'
+import { useToast } from 'vue-toast-notification'
 
+const  toast =  useToast()
 const router = useRouter()
 const name = ref('')
 const email = ref('')
@@ -21,15 +23,14 @@ function handleSignup() {
   const exists = users.find((u) => u.email === email.value)
 
   if (exists) {
-    alert('An account with this email already exists!')
+    toast.failed('An account with this email already exists!')
     return
   }
 
   const newUser = { name: name.value, email: email.value, password: password.value }
   users.push(newUser)
   localStorage.setItem('ticketapp_users', JSON.stringify(users))
-
-  alert('Account created successfully! You can now log in.')
+ toast.success('Account created successfully! You can now log in.')
   router.push('/login')
 }
 </script>

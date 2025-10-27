@@ -2,15 +2,17 @@
   <aside
     :class="[
       'fixed top-0 left-0 z-50 h-screen flex flex-col bg-gray-700 text-white transition-all duration-300 ease-in-out overflow-y-auto',
-      collapsed ? 'w-20' : 'w-60'
+      collapsed ? 'w-20' : 'w-60',
     ]"
   >
     <!-- Header -->
     <div
-      class="flex items-center gap-3 cursor-pointer p-3 rounded-md  hover:bg-gray-200 hover:text-black transition-colors duration-200"
+      class="flex items-center gap-3 cursor-pointer p-3 rounded-md hover:bg-gray-200 hover:text-black transition-colors duration-200"
       @click="toggleSidebar"
     >
-      <span class="material-symbols-outlined text-2xl hover:text-black">confirmation_number</span>
+      <span v-if="collapsed" class="material-symbols-outlined text-2xl hover:text-black"> double_arrow </span>
+
+      <span v-else class="material-symbols-outlined"> keyboard_double_arrow_left </span>
       <span v-if="!collapsed" class="font-semibold text-lg">TicketApp</span>
     </div>
 
@@ -18,18 +20,26 @@
     <nav class="flex flex-col gap-1 mt-4">
       <RouterLink
         to="/dashboard"
-        class="flex items-center gap-3 p-3 rounded-md  hover:bg-gray-200 hover:text-black transition"
+        class="flex items-center gap-3 p-3 rounded-md hover:bg-gray-200 hover:text-black transition"
         exact-active-class="bg-gray-200  text-black font-semibold"
       >
         <span class="material-symbols-outlined text-xl">dashboard</span>
         <span v-if="!collapsed">Dashboard</span>
       </RouterLink>
 
+      <RouterLink
+        to="/TicketPage"
+        class="flex items-center gap-3 p-3 rounded-md hover:bg-gray-200 hover:text-black transition"
+        exact-active-class="bg-gray-200  text-black font-semibold"
+      >
+        <span class="material-symbols-outlined text-xl"> confirmation_number </span>
+        <span v-if="!collapsed">Tickets</span>
+      </RouterLink>
     </nav>
 
     <!-- Logout -->
     <button
-      class="mt-auto flex items-center gap-3 p-3 rounded-md  hover:bg-red-400 transition text-white font-medium"
+      class="mt-auto flex items-center gap-3 p-3 rounded-md hover:bg-red-400 transition text-white font-medium"
       @click="logout"
     >
       <span class="material-symbols-outlined text-xl">logout</span>
@@ -58,9 +68,9 @@ const logout = () => {
 <style scoped>
 .material-symbols-outlined {
   font-variation-settings:
-    "FILL" 0,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 }
 </style>

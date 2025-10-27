@@ -10,7 +10,6 @@ import About from '@/views/pages/About.vue'
     <Navbar />
     <Hero />
     <About />
-
     <section class="my-16 px-6 text-center">
       <div>
         <h1 class="text-3xl font-bold text-gray-800 mb-4">Why Choose Us</h1>
