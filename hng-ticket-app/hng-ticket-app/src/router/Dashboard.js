@@ -16,7 +16,8 @@ export const dashboardroutes = [
       {
         path: '/TicketPage',
         name: 'TicketPage',
-        component: TicketPage,    
+        component: TicketPage,
+       
       },
     ],
   },

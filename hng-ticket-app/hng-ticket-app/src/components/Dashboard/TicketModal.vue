@@ -63,8 +63,8 @@
 import { ref, watch } from 'vue'
 
 const props = defineProps({
-  modelValue: Boolean,
-  editing: Object,  
+  modelValue: Boolean,  // controls modal visibility
+  editing: Object,      // ticket to edit
 })
 const emit = defineEmits(['close', 'saved'])
 

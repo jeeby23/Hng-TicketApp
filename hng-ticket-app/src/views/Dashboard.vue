@@ -1,88 +1,93 @@
 <template>
-  <div class="min-h-screen bg-gray-50 p-4">
-    <div class="max-w-[1440px] mx-auto space-y-8">
-      <!-- Stats Section -->
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        <div class="bg-white  flex flex-col justify-center items-center w-64 md:w-full p-6 rounded-xl shadow md:text-center">
-          <h3 class="text-base sm:text-lg font-semibold text-gray-600">
-            Total Tickets
-          </h3>
-          <p class="text-2xl sm:text-3xl font-bold text-blue-500">
-            {{ stats.total }}
-          </p>
-        </div>
-        <div class="bg-white flex flex-col justify-center items-center  w-64 md:w-full p-6 rounded-xl shadow md:text-center">
-          <h3 class="text-base sm:text-lg font-semibold text-gray-600">
-            Open Tickets
-          </h3>
-          <p class="text-2xl sm:text-3xl font-bold text-green-500">
-            {{ stats.open }}
-          </p>
-        </div>
-        <div class="bg-white flex flex-col justify-center items-center w-64 md:w-full  p-6 rounded-xl shadow md:text-center">
-          <h3 class="text-base sm:text-lg font-semibold text-gray-600">
-            Resolved
-          </h3>
-          <p class="text-2xl sm:text-3xl font-bold text-gray-500">
-            {{ stats.closed }}
-          </p>
-        </div>
-      </div>
+  <main class=" max-w-[1440px]">
 
-      <!-- Quick Actions Section -->
-      <div class="bg-white rounded-xl  w-[350px] md:w-full shadow p-6">
+    <div class=" mx-auto min-h-screen bg-gray-50 p-4">
+      <div class="space-y-8">
+        <!-- Stats Section -->
         <div
-          class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          <h2 class="text-lg sm:text-xl font-semibold text-gray-800">
-            Quick Actions
-          </h2>
-          <div class="flex flex-wrap gap-3">
-            <!-- <button
-              @click="openModal"
-              class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
-            >
-              + New Ticket
-            </button> -->
-            <RouterLink
-              :to="{ name: 'TicketPage' }"
-              class="border border-gray-300 px-4 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition"
-            >
-              View all tickets
-            </RouterLink>
+          <div class="bg-white  flex flex-col justify-center items-center w-64 md:w-full p-6 rounded-xl shadow md:text-center">
+            <h3 class="text-base sm:text-lg font-semibold text-gray-600">
+              Total Tickets
+            </h3>
+            <p class="text-2xl sm:text-3xl font-bold text-blue-500">
+              {{ stats.total }}
+            </p>
+          </div>
+          <div class="bg-white flex flex-col justify-center items-center  w-64 md:w-full p-6 rounded-xl shadow md:text-center">
+            <h3 class="text-base sm:text-lg font-semibold text-gray-600">
+              Open Tickets
+            </h3>
+            <p class="text-2xl sm:text-3xl font-bold text-green-500">
+              {{ stats.open }}
+            </p>
+          </div>
+          <div class="bg-white flex flex-col justify-center items-center w-64 md:w-full  p-6 rounded-xl shadow md:text-center">
+            <h3 class="text-base sm:text-lg font-semibold text-gray-600">
+              Resolved
+            </h3>
+            <p class="text-2xl sm:text-3xl font-bold text-gray-500">
+              {{ stats.closed }}
+            </p>
           </div>
         </div>
-
-        <!-- Recent Tickets Table -->
-        <RecentTickets
-          :tickets="recentTickets"
-          @edit="editTicket"
-          @delete="deleteTicket"
-        />
+  
+        <!-- Quick Actions Section -->
+        <div class="bg-white rounded-xl max-w-80 md:max-w-60  lg:max-w-screen shadow p-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4"
+          >
+            <h2 class="text-lg sm:text-xl font-semibold text-gray-800">
+              Quick Actions
+            </h2>
+            <div class="flex flex-wrap gap-3">
+              <!-- <button
+                @click="openModal"
+                class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
+              >
+                + New Ticket
+              </button> -->
+              <RouterLink
+                :to="{ name: 'TicketPage' }"
+                class="border border-gray-300 px-4 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition"
+              >
+                View all tickets
+              </RouterLink>
+            </div>
+          </div>
+  
+          <!-- Recent Tickets Table -->
+          <RecentTickets
+            :tickets="recentTickets"
+            @edit="editTicket"
+            @delete="deleteTicket"
+          />
+        </div>
       </div>
+  
+      <!-- Modal -->
+      <TicketModal
+        v-if="showModal"
+        :editing="editing"
+        @close="closeModal"
+        @saved="
+          () => {
+            loadTickets();
+            closeModal();
+          }
+        "
+      />
+     
     </div>
-
-    <!-- Modal -->
-    <TicketModal
-      v-if="showModal"
-      :editing="editing"
-      @close="closeModal"
-      @saved="
-        () => {
-          loadTickets();
-          closeModal();
-        }
-      "
-    />
-  </div>
+  </main>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import TicketModal from '@/components/Dashboard/TicketModal.vue'
+import RemoveModal from "@/components/Dashboard/ToastModal.vue"
 import RecentTickets from '@/components/Dashboard/RecentTicketsTable.vue'
 
 const router = useRouter()

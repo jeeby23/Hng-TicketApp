@@ -8,13 +8,9 @@ import ToastPlugin from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-default.css'
 import App from './App.vue'
 import router from './router'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(fas)
 const app = createApp(App)
-app.component('font-awesome-icon', FontAwesomeIcon)
+
 app.use(createPinia())
 app.use(router)
 app.use(ToastPlugin)

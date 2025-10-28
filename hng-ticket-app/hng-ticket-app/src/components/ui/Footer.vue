@@ -5,8 +5,10 @@
     <div
       class="max-w-[1440px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left"
     >
+
       <div>
         <h1 class="text-xl font-semibold text-gray-800 mb-4">Contact Us</h1>
+
         <div class="flex flex-col md:flex-row items-center md:items-start gap-2 mb-2">
           <span class="material-symbols-outlined hover:text-gray-500 text-2xl">location_on</span>
           <p class="text-gray-600">Marshy Hill Estate, Ajah, Lagos State</p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex min-h-screen  max-w-[1440px] bg-gray-50 relative">
+  <div class="flex min-h-screen bg-gray-50 relative">
     <Sidebar />
 
     <div class="flex-1 ml-20 md:ml-60 transition-all duration-300 p-6 relative">
@@ -9,13 +9,11 @@
       </main>
     </div>
   </div>
-  <Footer/>
 </template>
 
 <script setup>
 import Navbar from '@/components/ui/Navbar.vue'
 import Sidebar from '@/components/Sidebar.vue'
-import Footer from '@/components/ui/Footer.vue'
 
 
 </script>
